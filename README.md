@@ -1,2 +1,0 @@
-# blog
-java springMVC maven
