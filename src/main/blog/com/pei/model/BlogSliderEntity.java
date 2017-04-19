@@ -35,16 +35,16 @@ public class BlogSliderEntity {
     public void setId(int id) {
         this.id = id;
     }
-
-    @Basic
-    @Column(name = "creator_id", nullable = false)
-    public int getCreatorId() {
-        return creatorId;
-    }
-
-    public void setCreatorId(int creatorId) {
-        this.creatorId = creatorId;
-    }
+//
+//    @Basic
+//    @Column(name = "creator_id", nullable = false)
+//    public int getCreatorId() {
+//        return creatorId;
+//    }
+//
+//    public void setCreatorId(int creatorId) {
+//        this.creatorId = creatorId;
+//    }
 
     @Basic
     @Column(name = "created_time", nullable = false)
@@ -55,16 +55,16 @@ public class BlogSliderEntity {
     public void setCreatedTime(Timestamp createdTime) {
         this.createdTime = createdTime;
     }
-
-    @Basic
-    @Column(name = "modifier_id", nullable = false)
-    public int getModifierId() {
-        return modifierId;
-    }
-
-    public void setModifierId(int modifierId) {
-        this.modifierId = modifierId;
-    }
+//
+//    @Basic
+//    @Column(name = "modifier_id", nullable = false)
+//    public int getModifierId() {
+//        return modifierId;
+//    }
+//
+//    public void setModifierId(int modifierId) {
+//        this.modifierId = modifierId;
+//    }
 
     @Basic
     @Column(name = "modified_time", nullable = false)
@@ -125,16 +125,16 @@ public class BlogSliderEntity {
     public void setTitle(String title) {
         this.title = title;
     }
-
-    @Basic
-    @Column(name = "image_id", nullable = false)
-    public int getImageId() {
-        return imageId;
-    }
-
-    public void setImageId(int imageId) {
-        this.imageId = imageId;
-    }
+//
+//    @Basic
+//    @Column(name = "image_id", nullable = false)
+//    public int getImageId() {
+//        return imageId;
+//    }
+//
+//    public void setImageId(int imageId) {
+//        this.imageId = imageId;
+//    }
 
     @Basic
     @Column(name = "jump_url", nullable = false, length = 255)

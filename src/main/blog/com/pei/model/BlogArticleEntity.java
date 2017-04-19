@@ -49,15 +49,15 @@ public class BlogArticleEntity {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "creator_id", nullable = false)
-    public int getCreatorId() {
-        return creatorId;
-    }
-
-    public void setCreatorId(int creatorId) {
-        this.creatorId = creatorId;
-    }
+//    @Basic
+//    @Column(name = "creator_id", nullable = false)
+//    public int getCreatorId() {
+//        return creatorId;
+//    }
+//
+//    public void setCreatorId(int creatorId) {
+//        this.creatorId = creatorId;
+//    }
 
     @Basic
     @Column(name = "created_time", nullable = false)
@@ -69,15 +69,15 @@ public class BlogArticleEntity {
         this.createdTime = createdTime;
     }
 
-    @Basic
-    @Column(name = "modifier_id", nullable = false)
-    public int getModifierId() {
-        return modifierId;
-    }
-
-    public void setModifierId(int modifierId) {
-        this.modifierId = modifierId;
-    }
+//    @Basic
+//    @Column(name = "modifier_id", nullable = false)
+//    public int getModifierId() {
+//        return modifierId;
+//    }
+//
+//    public void setModifierId(int modifierId) {
+//        this.modifierId = modifierId;
+//    }
 
     @Basic
     @Column(name = "modified_time", nullable = false)
@@ -148,16 +148,16 @@ public class BlogArticleEntity {
     public void setSlug(String slug) {
         this.slug = slug;
     }
-
-    @Basic
-    @Column(name = "category_id", nullable = false)
-    public int getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(int categoryId) {
-        this.categoryId = categoryId;
-    }
+//
+//    @Basic
+//    @Column(name = "category_id", nullable = false)
+//    public int getCategoryId() {
+//        return categoryId;
+//    }
+//
+//    public void setCategoryId(int categoryId) {
+//        this.categoryId = categoryId;
+//    }
 
     @Basic
     @Column(name = "status", nullable = false)
@@ -229,15 +229,15 @@ public class BlogArticleEntity {
         this.loginRequired = loginRequired;
     }
 
-    @Basic
-    @Column(name = "thumbnail_id", nullable = true)
-    public Integer getThumbnailId() {
-        return thumbnailId;
-    }
-
-    public void setThumbnailId(Integer thumbnailId) {
-        this.thumbnailId = thumbnailId;
-    }
+//    @Basic
+//    @Column(name = "thumbnail_id", nullable = true)
+//    public Integer getThumbnailId() {
+//        return thumbnailId;
+//    }
+//
+//    public void setThumbnailId(Integer thumbnailId) {
+//        this.thumbnailId = thumbnailId;
+//    }
 
     @Basic
     @Column(name = "views_count", nullable = false)

@@ -24,25 +24,25 @@ public class UsermanagementCustomuserGroupsEntity {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "customuser_id", nullable = false)
-    public int getCustomuserId() {
-        return customuserId;
-    }
-
-    public void setCustomuserId(int customuserId) {
-        this.customuserId = customuserId;
-    }
-
-    @Basic
-    @Column(name = "group_id", nullable = false)
-    public int getGroupId() {
-        return groupId;
-    }
-
-    public void setGroupId(int groupId) {
-        this.groupId = groupId;
-    }
+//    @Basic
+//    @Column(name = "customuser_id", nullable = false)
+//    public int getCustomuserId() {
+//        return customuserId;
+//    }
+//
+//    public void setCustomuserId(int customuserId) {
+//        this.customuserId = customuserId;
+//    }
+//
+//    @Basic
+//    @Column(name = "group_id", nullable = false)
+//    public int getGroupId() {
+//        return groupId;
+//    }
+//
+//    public void setGroupId(int groupId) {
+//        this.groupId = groupId;
+//    }
 
     @Override
     public boolean equals(Object o) {

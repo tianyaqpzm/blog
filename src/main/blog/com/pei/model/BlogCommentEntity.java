@@ -42,25 +42,25 @@ public class BlogCommentEntity {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "user_id", nullable = true)
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
-    @Basic
-    @Column(name = "article_id", nullable = false)
-    public int getArticleId() {
-        return articleId;
-    }
-
-    public void setArticleId(int articleId) {
-        this.articleId = articleId;
-    }
+//    @Basic
+//    @Column(name = "user_id", nullable = true)
+//    public Integer getUserId() {
+//        return userId;
+//    }
+//
+//    public void setUserId(Integer userId) {
+//        this.userId = userId;
+//    }
+//
+//    @Basic
+//    @Column(name = "article_id", nullable = false)
+//    public int getArticleId() {
+//        return articleId;
+//    }
+//
+//    public void setArticleId(int articleId) {
+//        this.articleId = articleId;
+//    }
 
     @Basic
     @Column(name = "author", nullable = false, length = 100)
@@ -111,16 +111,16 @@ public class BlogCommentEntity {
     public void setAuthorAgent(String authorAgent) {
         this.authorAgent = authorAgent;
     }
+//
+//    @Basic
+//    @Column(name = "parent_id", nullable = true)
+//    public Integer getParentId() {
+//        return parentId;
+//    }
 
-    @Basic
-    @Column(name = "parent_id", nullable = true)
-    public Integer getParentId() {
-        return parentId;
-    }
-
-    public void setParentId(Integer parentId) {
-        this.parentId = parentId;
-    }
+//    public void setParentId(Integer parentId) {
+//        this.parentId = parentId;
+//    }
 
     @Basic
     @Column(name = "comment_date", nullable = false)

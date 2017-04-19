@@ -23,26 +23,26 @@ public class BlogArticleTagsEntity {
     public void setId(int id) {
         this.id = id;
     }
-
-    @Basic
-    @Column(name = "article_id", nullable = false)
-    public int getArticleId() {
-        return articleId;
-    }
-
-    public void setArticleId(int articleId) {
-        this.articleId = articleId;
-    }
-
-    @Basic
-    @Column(name = "tag_id", nullable = false)
-    public int getTagId() {
-        return tagId;
-    }
-
-    public void setTagId(int tagId) {
-        this.tagId = tagId;
-    }
+//
+//    @Basic
+//    @Column(name = "article_id", nullable = false)
+//    public int getArticleId() {
+//        return articleId;
+//    }
+//
+//    public void setArticleId(int articleId) {
+//        this.articleId = articleId;
+//    }
+//
+//    @Basic
+//    @Column(name = "tag_id", nullable = false)
+//    public int getTagId() {
+//        return tagId;
+//    }
+//
+//    public void setTagId(int tagId) {
+//        this.tagId = tagId;
+//    }
 
     @Override
     public boolean equals(Object o) {

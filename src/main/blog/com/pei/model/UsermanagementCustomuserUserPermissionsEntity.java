@@ -23,26 +23,26 @@ public class UsermanagementCustomuserUserPermissionsEntity {
     public void setId(int id) {
         this.id = id;
     }
-
-    @Basic
-    @Column(name = "customuser_id", nullable = false)
-    public int getCustomuserId() {
-        return customuserId;
-    }
-
-    public void setCustomuserId(int customuserId) {
-        this.customuserId = customuserId;
-    }
-
-    @Basic
-    @Column(name = "permission_id", nullable = false)
-    public int getPermissionId() {
-        return permissionId;
-    }
-
-    public void setPermissionId(int permissionId) {
-        this.permissionId = permissionId;
-    }
+//
+//    @Basic
+//    @Column(name = "customuser_id", nullable = false)
+//    public int getCustomuserId() {
+//        return customuserId;
+//    }
+//
+//    public void setCustomuserId(int customuserId) {
+//        this.customuserId = customuserId;
+//    }
+//
+//    @Basic
+//    @Column(name = "permission_id", nullable = false)
+//    public int getPermissionId() {
+//        return permissionId;
+//    }
+//
+//    public void setPermissionId(int permissionId) {
+//        this.permissionId = permissionId;
+//    }
 
     @Override
     public boolean equals(Object o) {

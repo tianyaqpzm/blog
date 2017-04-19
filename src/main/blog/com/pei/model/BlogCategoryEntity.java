@@ -42,15 +42,15 @@ public class BlogCategoryEntity {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "creator_id", nullable = false)
-    public int getCreatorId() {
-        return creatorId;
-    }
-
-    public void setCreatorId(int creatorId) {
-        this.creatorId = creatorId;
-    }
+//    @Basic
+//    @Column(name = "creator_id", nullable = false)
+//    public int getCreatorId() {
+//        return creatorId;
+//    }
+//
+//    public void setCreatorId(int creatorId) {
+//        this.creatorId = creatorId;
+//    }
 
     @Basic
     @Column(name = "created_time", nullable = false)
@@ -61,16 +61,16 @@ public class BlogCategoryEntity {
     public void setCreatedTime(Timestamp createdTime) {
         this.createdTime = createdTime;
     }
-
-    @Basic
-    @Column(name = "modifier_id", nullable = false)
-    public int getModifierId() {
-        return modifierId;
-    }
-
-    public void setModifierId(int modifierId) {
-        this.modifierId = modifierId;
-    }
+//
+//    @Basic
+//    @Column(name = "modifier_id", nullable = false)
+//    public int getModifierId() {
+//        return modifierId;
+//    }
+//
+//    public void setModifierId(int modifierId) {
+//        this.modifierId = modifierId;
+//    }
 
     @Basic
     @Column(name = "modified_time", nullable = false)
@@ -172,15 +172,15 @@ public class BlogCategoryEntity {
         this.iconPath = iconPath;
     }
 
-    @Basic
-    @Column(name = "parent_id", nullable = true)
-    public Integer getParentId() {
-        return parentId;
-    }
-
-    public void setParentId(Integer parentId) {
-        this.parentId = parentId;
-    }
+//    @Basic
+//    @Column(name = "parent_id", nullable = true)
+//    public Integer getParentId() {
+//        return parentId;
+//    }
+//
+//    public void setParentId(Integer parentId) {
+//        this.parentId = parentId;
+//    }
 
     @Basic
     @Column(name = "views_count", nullable = false)

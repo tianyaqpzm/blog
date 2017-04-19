@@ -39,26 +39,26 @@ public class DjangoAdminLogEntity {
     public void setActionTime(Timestamp actionTime) {
         this.actionTime = actionTime;
     }
+//
+//    @Basic
+//    @Column(name = "user_id", nullable = false)
+//    public int getUserId() {
+//        return userId;
+//    }
+//
+//    public void setUserId(int userId) {
+//        this.userId = userId;
+//    }
 
-    @Basic
-    @Column(name = "user_id", nullable = false)
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    @Basic
-    @Column(name = "content_type_id", nullable = true)
-    public Integer getContentTypeId() {
-        return contentTypeId;
-    }
-
-    public void setContentTypeId(Integer contentTypeId) {
-        this.contentTypeId = contentTypeId;
-    }
+//    @Basic
+//    @Column(name = "content_type_id", nullable = true)
+//    public Integer getContentTypeId() {
+//        return contentTypeId;
+//    }
+//
+//    public void setContentTypeId(Integer contentTypeId) {
+//        this.contentTypeId = contentTypeId;
+//    }
 
     @Basic
     @Column(name = "object_id", nullable = true, length = -1)

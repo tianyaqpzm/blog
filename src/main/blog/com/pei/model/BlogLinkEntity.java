@@ -35,16 +35,16 @@ public class BlogLinkEntity {
     public void setId(int id) {
         this.id = id;
     }
-
-    @Basic
-    @Column(name = "creator_id", nullable = false)
-    public int getCreatorId() {
-        return creatorId;
-    }
-
-    public void setCreatorId(int creatorId) {
-        this.creatorId = creatorId;
-    }
+//
+//    @Basic
+//    @Column(name = "creator_id", nullable = false)
+//    public int getCreatorId() {
+//        return creatorId;
+//    }
+//
+//    public void setCreatorId(int creatorId) {
+//        this.creatorId = creatorId;
+//    }
 
     @Basic
     @Column(name = "created_time", nullable = false)
@@ -56,15 +56,15 @@ public class BlogLinkEntity {
         this.createdTime = createdTime;
     }
 
-    @Basic
-    @Column(name = "modifier_id", nullable = false)
-    public int getModifierId() {
-        return modifierId;
-    }
-
-    public void setModifierId(int modifierId) {
-        this.modifierId = modifierId;
-    }
+//    @Basic
+//    @Column(name = "modifier_id", nullable = false)
+//    public int getModifierId() {
+//        return modifierId;
+//    }
+//
+//    public void setModifierId(int modifierId) {
+//        this.modifierId = modifierId;
+//    }
 
     @Basic
     @Column(name = "modified_time", nullable = false)

@@ -24,25 +24,25 @@ public class AuthGroupPermissionsEntity {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "group_id", nullable = false)
-    public int getGroupId() {
-        return groupId;
-    }
-
-    public void setGroupId(int groupId) {
-        this.groupId = groupId;
-    }
-
-    @Basic
-    @Column(name = "permission_id", nullable = false)
-    public int getPermissionId() {
-        return permissionId;
-    }
-
-    public void setPermissionId(int permissionId) {
-        this.permissionId = permissionId;
-    }
+//    @Basic
+//    @Column(name = "group_id", nullable = false)
+//    public int getGroupId() {
+//        return groupId;
+//    }
+//
+//    public void setGroupId(int groupId) {
+//        this.groupId = groupId;
+//    }
+//
+//    @Basic
+//    @Column(name = "permission_id", nullable = false)
+//    public int getPermissionId() {
+//        return permissionId;
+//    }
+//
+//    public void setPermissionId(int permissionId) {
+//        this.permissionId = permissionId;
+//    }
 
     @Override
     public boolean equals(Object o) {

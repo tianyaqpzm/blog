@@ -36,15 +36,16 @@ public class BlogTagEntity {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "creator_id", nullable = false)
-    public int getCreatorId() {
-        return creatorId;
-    }
 
-    public void setCreatorId(int creatorId) {
-        this.creatorId = creatorId;
-    }
+//    @Basic
+//    @Column(name = "creator_id", nullable = false)
+//    public int getCreatorId() {
+//        return creatorId;
+//    }
+//
+//    public void setCreatorId(int creatorId) {
+//        this.creatorId = creatorId;
+//    }
 
     @Basic
     @Column(name = "created_time", nullable = false)
@@ -56,15 +57,15 @@ public class BlogTagEntity {
         this.createdTime = createdTime;
     }
 
-    @Basic
-    @Column(name = "modifier_id", nullable = false)
-    public int getModifierId() {
-        return modifierId;
-    }
-
-    public void setModifierId(int modifierId) {
-        this.modifierId = modifierId;
-    }
+//    @Basic
+//    @Column(name = "modifier_id", nullable = false)
+//    public int getModifierId() {
+//        return modifierId;
+//    }
+//
+//    public void setModifierId(int modifierId) {
+//        this.modifierId = modifierId;
+//    }
 
     @Basic
     @Column(name = "modified_time", nullable = false)
@@ -194,6 +195,11 @@ public class BlogTagEntity {
     public void setBlogArticleTagsById(Collection<BlogArticleTagsEntity> blogArticleTagsById) {
         this.blogArticleTagsById = blogArticleTagsById;
     }
+
+
+//    出现should be mapped with insert="false" update="false"的解决方法
+//    一个问题的出现，往往是由于某些原因导致的，从源头找起。这个问题主要是由于建立多对一关系映射的时候出现两个重复的定义。
+
 
     @ManyToOne
     @JoinColumn(name = "creator_id", referencedColumnName = "id", nullable = false)

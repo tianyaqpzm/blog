@@ -36,16 +36,16 @@ public class AuthPermissionEntity {
     public void setName(String name) {
         this.name = name;
     }
-
-    @Basic
-    @Column(name = "content_type_id", nullable = false)
-    public int getContentTypeId() {
-        return contentTypeId;
-    }
-
-    public void setContentTypeId(int contentTypeId) {
-        this.contentTypeId = contentTypeId;
-    }
+//
+//    @Basic
+//    @Column(name = "content_type_id", nullable = false)
+//    public int getContentTypeId() {
+//        return contentTypeId;
+//    }
+//
+//    public void setContentTypeId(int contentTypeId) {
+//        this.contentTypeId = contentTypeId;
+//    }
 
     @Basic
     @Column(name = "codename", nullable = false, length = 100)
