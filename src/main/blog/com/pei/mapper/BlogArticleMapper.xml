@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pei.com.pei.mapper.BlogArticleMapper" >
+  <resultMap id="BaseResultMap" type="com.pei.com.pei.pojo.BlogArticle" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="creator_id" property="creatorId" jdbcType="INTEGER" />
+    <result column="created_time" property="createdTime" jdbcType="TIMESTAMP" />
+    <result column="modifier_id" property="modifierId" jdbcType="INTEGER" />
+    <result column="modified_time" property="modifiedTime" jdbcType="TIMESTAMP" />
+    <result column="hided" property="hided" jdbcType="BIT" />
+    <result column="published" property="published" jdbcType="BIT" />
+    <result column="sync_status" property="syncStatus" jdbcType="INTEGER" />
+    <result column="order" property="order" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="slug" property="slug" jdbcType="VARCHAR" />
+    <result column="category_id" property="categoryId" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="enable_comment" property="enableComment" jdbcType="BIT" />
+    <result column="mark" property="mark" jdbcType="INTEGER" />
+    <result column="publish_date" property="publishDate" jdbcType="TIMESTAMP" />
+    <result column="login_required" property="loginRequired" jdbcType="BIT" />
+    <result column="thumbnail_id" property="thumbnailId" jdbcType="INTEGER" />
+    <result column="views_count" property="viewsCount" jdbcType="INTEGER" />
+    <result column="comment_count" property="commentCount" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.pei.com.pei.pojo.BlogArticleWithBLOBs" extends="BaseResultMap" >
+    <result column="description" property="description" jdbcType="LONGVARCHAR" />
+    <result column="content" property="content" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, creator_id, created_time, modifier_id, modified_time, hided, published, sync_status, 
+    order, title, slug, category_id, status, enable_comment, mark, publish_date, login_required, 
+    thumbnail_id, views_count, comment_count
+  </sql>
+  <sql id="Blob_Column_List" >
+    description, content
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.pei.com.pei.pojo.BlogArticleExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from blog_article
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.pei.com.pei.pojo.BlogArticleExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from blog_article
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from blog_article
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from blog_article
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.pei.com.pei.pojo.BlogArticleExample" >
+    delete from blog_article
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.pei.com.pei.pojo.BlogArticleWithBLOBs" >
+    insert into blog_article (id, creator_id, created_time, 
+      modifier_id, modified_time, hided, 
+      published, sync_status, order, 
+      title, slug, category_id, 
+      status, enable_comment, mark, 
+      publish_date, login_required, thumbnail_id, 
+      views_count, comment_count, description, 
+      content)
+    values (#{id,jdbcType=INTEGER}, #{creatorId,jdbcType=INTEGER}, #{createdTime,jdbcType=TIMESTAMP}, 
+      #{modifierId,jdbcType=INTEGER}, #{modifiedTime,jdbcType=TIMESTAMP}, #{hided,jdbcType=BIT}, 
+      #{published,jdbcType=BIT}, #{syncStatus,jdbcType=INTEGER}, #{order,jdbcType=INTEGER}, 
+      #{title,jdbcType=VARCHAR}, #{slug,jdbcType=VARCHAR}, #{categoryId,jdbcType=INTEGER}, 
+      #{status,jdbcType=INTEGER}, #{enableComment,jdbcType=BIT}, #{mark,jdbcType=INTEGER}, 
+      #{publishDate,jdbcType=TIMESTAMP}, #{loginRequired,jdbcType=BIT}, #{thumbnailId,jdbcType=INTEGER}, 
+      #{viewsCount,jdbcType=INTEGER}, #{commentCount,jdbcType=INTEGER}, #{description,jdbcType=LONGVARCHAR}, 
+      #{content,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.pei.com.pei.pojo.BlogArticleWithBLOBs" >
+    insert into blog_article
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="creatorId != null" >
+        creator_id,
+      </if>
+      <if test="createdTime != null" >
+        created_time,
+      </if>
+      <if test="modifierId != null" >
+        modifier_id,
+      </if>
+      <if test="modifiedTime != null" >
+        modified_time,
+      </if>
+      <if test="hided != null" >
+        hided,
+      </if>
+      <if test="published != null" >
+        published,
+      </if>
+      <if test="syncStatus != null" >
+        sync_status,
+      </if>
+      <if test="order != null" >
+        order,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="slug != null" >
+        slug,
+      </if>
+      <if test="categoryId != null" >
+        category_id,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="enableComment != null" >
+        enable_comment,
+      </if>
+      <if test="mark != null" >
+        mark,
+      </if>
+      <if test="publishDate != null" >
+        publish_date,
+      </if>
+      <if test="loginRequired != null" >
+        login_required,
+      </if>
+      <if test="thumbnailId != null" >
+        thumbnail_id,
+      </if>
+      <if test="viewsCount != null" >
+        views_count,
+      </if>
+      <if test="commentCount != null" >
+        comment_count,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="creatorId != null" >
+        #{creatorId,jdbcType=INTEGER},
+      </if>
+      <if test="createdTime != null" >
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifierId != null" >
+        #{modifierId,jdbcType=INTEGER},
+      </if>
+      <if test="modifiedTime != null" >
+        #{modifiedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hided != null" >
+        #{hided,jdbcType=BIT},
+      </if>
+      <if test="published != null" >
+        #{published,jdbcType=BIT},
+      </if>
+      <if test="syncStatus != null" >
+        #{syncStatus,jdbcType=INTEGER},
+      </if>
+      <if test="order != null" >
+        #{order,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="slug != null" >
+        #{slug,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryId != null" >
+        #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="enableComment != null" >
+        #{enableComment,jdbcType=BIT},
+      </if>
+      <if test="mark != null" >
+        #{mark,jdbcType=INTEGER},
+      </if>
+      <if test="publishDate != null" >
+        #{publishDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginRequired != null" >
+        #{loginRequired,jdbcType=BIT},
+      </if>
+      <if test="thumbnailId != null" >
+        #{thumbnailId,jdbcType=INTEGER},
+      </if>
+      <if test="viewsCount != null" >
+        #{viewsCount,jdbcType=INTEGER},
+      </if>
+      <if test="commentCount != null" >
+        #{commentCount,jdbcType=INTEGER},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.pei.com.pei.pojo.BlogArticleExample" resultType="java.lang.Integer" >
+    select count(*) from blog_article
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update blog_article
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.creatorId != null" >
+        creator_id = #{record.creatorId,jdbcType=INTEGER},
+      </if>
+      <if test="record.createdTime != null" >
+        created_time = #{record.createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.modifierId != null" >
+        modifier_id = #{record.modifierId,jdbcType=INTEGER},
+      </if>
+      <if test="record.modifiedTime != null" >
+        modified_time = #{record.modifiedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.hided != null" >
+        hided = #{record.hided,jdbcType=BIT},
+      </if>
+      <if test="record.published != null" >
+        published = #{record.published,jdbcType=BIT},
+      </if>
+      <if test="record.syncStatus != null" >
+        sync_status = #{record.syncStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.order != null" >
+        order = #{record.order,jdbcType=INTEGER},
+      </if>
+      <if test="record.title != null" >
+        title = #{record.title,jdbcType=VARCHAR},
+      </if>
+      <if test="record.slug != null" >
+        slug = #{record.slug,jdbcType=VARCHAR},
+      </if>
+      <if test="record.categoryId != null" >
+        category_id = #{record.categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.enableComment != null" >
+        enable_comment = #{record.enableComment,jdbcType=BIT},
+      </if>
+      <if test="record.mark != null" >
+        mark = #{record.mark,jdbcType=INTEGER},
+      </if>
+      <if test="record.publishDate != null" >
+        publish_date = #{record.publishDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.loginRequired != null" >
+        login_required = #{record.loginRequired,jdbcType=BIT},
+      </if>
+      <if test="record.thumbnailId != null" >
+        thumbnail_id = #{record.thumbnailId,jdbcType=INTEGER},
+      </if>
+      <if test="record.viewsCount != null" >
+        views_count = #{record.viewsCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.commentCount != null" >
+        comment_count = #{record.commentCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.description != null" >
+        description = #{record.description,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.content != null" >
+        content = #{record.content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update blog_article
+    set id = #{record.id,jdbcType=INTEGER},
+      creator_id = #{record.creatorId,jdbcType=INTEGER},
+      created_time = #{record.createdTime,jdbcType=TIMESTAMP},
+      modifier_id = #{record.modifierId,jdbcType=INTEGER},
+      modified_time = #{record.modifiedTime,jdbcType=TIMESTAMP},
+      hided = #{record.hided,jdbcType=BIT},
+      published = #{record.published,jdbcType=BIT},
+      sync_status = #{record.syncStatus,jdbcType=INTEGER},
+      order = #{record.order,jdbcType=INTEGER},
+      title = #{record.title,jdbcType=VARCHAR},
+      slug = #{record.slug,jdbcType=VARCHAR},
+      category_id = #{record.categoryId,jdbcType=INTEGER},
+      status = #{record.status,jdbcType=INTEGER},
+      enable_comment = #{record.enableComment,jdbcType=BIT},
+      mark = #{record.mark,jdbcType=INTEGER},
+      publish_date = #{record.publishDate,jdbcType=TIMESTAMP},
+      login_required = #{record.loginRequired,jdbcType=BIT},
+      thumbnail_id = #{record.thumbnailId,jdbcType=INTEGER},
+      views_count = #{record.viewsCount,jdbcType=INTEGER},
+      comment_count = #{record.commentCount,jdbcType=INTEGER},
+      description = #{record.description,jdbcType=LONGVARCHAR},
+      content = #{record.content,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update blog_article
+    set id = #{record.id,jdbcType=INTEGER},
+      creator_id = #{record.creatorId,jdbcType=INTEGER},
+      created_time = #{record.createdTime,jdbcType=TIMESTAMP},
+      modifier_id = #{record.modifierId,jdbcType=INTEGER},
+      modified_time = #{record.modifiedTime,jdbcType=TIMESTAMP},
+      hided = #{record.hided,jdbcType=BIT},
+      published = #{record.published,jdbcType=BIT},
+      sync_status = #{record.syncStatus,jdbcType=INTEGER},
+      order = #{record.order,jdbcType=INTEGER},
+      title = #{record.title,jdbcType=VARCHAR},
+      slug = #{record.slug,jdbcType=VARCHAR},
+      category_id = #{record.categoryId,jdbcType=INTEGER},
+      status = #{record.status,jdbcType=INTEGER},
+      enable_comment = #{record.enableComment,jdbcType=BIT},
+      mark = #{record.mark,jdbcType=INTEGER},
+      publish_date = #{record.publishDate,jdbcType=TIMESTAMP},
+      login_required = #{record.loginRequired,jdbcType=BIT},
+      thumbnail_id = #{record.thumbnailId,jdbcType=INTEGER},
+      views_count = #{record.viewsCount,jdbcType=INTEGER},
+      comment_count = #{record.commentCount,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pei.com.pei.pojo.BlogArticleWithBLOBs" >
+    update blog_article
+    <set >
+      <if test="creatorId != null" >
+        creator_id = #{creatorId,jdbcType=INTEGER},
+      </if>
+      <if test="createdTime != null" >
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifierId != null" >
+        modifier_id = #{modifierId,jdbcType=INTEGER},
+      </if>
+      <if test="modifiedTime != null" >
+        modified_time = #{modifiedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hided != null" >
+        hided = #{hided,jdbcType=BIT},
+      </if>
+      <if test="published != null" >
+        published = #{published,jdbcType=BIT},
+      </if>
+      <if test="syncStatus != null" >
+        sync_status = #{syncStatus,jdbcType=INTEGER},
+      </if>
+      <if test="order != null" >
+        order = #{order,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="slug != null" >
+        slug = #{slug,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryId != null" >
+        category_id = #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="enableComment != null" >
+        enable_comment = #{enableComment,jdbcType=BIT},
+      </if>
+      <if test="mark != null" >
+        mark = #{mark,jdbcType=INTEGER},
+      </if>
+      <if test="publishDate != null" >
+        publish_date = #{publishDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginRequired != null" >
+        login_required = #{loginRequired,jdbcType=BIT},
+      </if>
+      <if test="thumbnailId != null" >
+        thumbnail_id = #{thumbnailId,jdbcType=INTEGER},
+      </if>
+      <if test="viewsCount != null" >
+        views_count = #{viewsCount,jdbcType=INTEGER},
+      </if>
+      <if test="commentCount != null" >
+        comment_count = #{commentCount,jdbcType=INTEGER},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.pei.com.pei.pojo.BlogArticleWithBLOBs" >
+    update blog_article
+    set creator_id = #{creatorId,jdbcType=INTEGER},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      modifier_id = #{modifierId,jdbcType=INTEGER},
+      modified_time = #{modifiedTime,jdbcType=TIMESTAMP},
+      hided = #{hided,jdbcType=BIT},
+      published = #{published,jdbcType=BIT},
+      sync_status = #{syncStatus,jdbcType=INTEGER},
+      order = #{order,jdbcType=INTEGER},
+      title = #{title,jdbcType=VARCHAR},
+      slug = #{slug,jdbcType=VARCHAR},
+      category_id = #{categoryId,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER},
+      enable_comment = #{enableComment,jdbcType=BIT},
+      mark = #{mark,jdbcType=INTEGER},
+      publish_date = #{publishDate,jdbcType=TIMESTAMP},
+      login_required = #{loginRequired,jdbcType=BIT},
+      thumbnail_id = #{thumbnailId,jdbcType=INTEGER},
+      views_count = #{viewsCount,jdbcType=INTEGER},
+      comment_count = #{commentCount,jdbcType=INTEGER},
+      description = #{description,jdbcType=LONGVARCHAR},
+      content = #{content,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pei.com.pei.pojo.BlogArticle" >
+    update blog_article
+    set creator_id = #{creatorId,jdbcType=INTEGER},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      modifier_id = #{modifierId,jdbcType=INTEGER},
+      modified_time = #{modifiedTime,jdbcType=TIMESTAMP},
+      hided = #{hided,jdbcType=BIT},
+      published = #{published,jdbcType=BIT},
+      sync_status = #{syncStatus,jdbcType=INTEGER},
+      order = #{order,jdbcType=INTEGER},
+      title = #{title,jdbcType=VARCHAR},
+      slug = #{slug,jdbcType=VARCHAR},
+      category_id = #{categoryId,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER},
+      enable_comment = #{enableComment,jdbcType=BIT},
+      mark = #{mark,jdbcType=INTEGER},
+      publish_date = #{publishDate,jdbcType=TIMESTAMP},
+      login_required = #{loginRequired,jdbcType=BIT},
+      thumbnail_id = #{thumbnailId,jdbcType=INTEGER},
+      views_count = #{viewsCount,jdbcType=INTEGER},
+      comment_count = #{commentCount,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

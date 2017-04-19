@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pei.com.pei.mapper.BlogCommentMapper" >
+  <resultMap id="BaseResultMap" type="com.pei.com.pei.pojo.BlogComment" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="article_id" property="articleId" jdbcType="INTEGER" />
+    <result column="author" property="author" jdbcType="VARCHAR" />
+    <result column="author_email" property="authorEmail" jdbcType="VARCHAR" />
+    <result column="author_website" property="authorWebsite" jdbcType="VARCHAR" />
+    <result column="author_ip" property="authorIp" jdbcType="VARCHAR" />
+    <result column="author_agent" property="authorAgent" jdbcType="VARCHAR" />
+    <result column="parent_id" property="parentId" jdbcType="INTEGER" />
+    <result column="comment_date" property="commentDate" jdbcType="TIMESTAMP" />
+    <result column="hided" property="hided" jdbcType="BIT" />
+    <result column="published" property="published" jdbcType="BIT" />
+    <result column="sync_status" property="syncStatus" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="duoshuo_id" property="duoshuoId" jdbcType="VARCHAR" />
+    <result column="duoshuo_user_id" property="duoshuoUserId" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.pei.com.pei.pojo.BlogComment" extends="BaseResultMap" >
+    <result column="content" property="content" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, user_id, article_id, author, author_email, author_website, author_ip, author_agent, 
+    parent_id, comment_date, hided, published, sync_status, status, duoshuo_id, duoshuo_user_id
+  </sql>
+  <sql id="Blob_Column_List" >
+    content
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.pei.com.pei.pojo.BlogCommentExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from blog_comment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.pei.com.pei.pojo.BlogCommentExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from blog_comment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from blog_comment
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from blog_comment
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.pei.com.pei.pojo.BlogCommentExample" >
+    delete from blog_comment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.pei.com.pei.pojo.BlogComment" >
+    insert into blog_comment (id, user_id, article_id, 
+      author, author_email, author_website, 
+      author_ip, author_agent, parent_id, 
+      comment_date, hided, published, 
+      sync_status, status, duoshuo_id, 
+      duoshuo_user_id, content)
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{articleId,jdbcType=INTEGER}, 
+      #{author,jdbcType=VARCHAR}, #{authorEmail,jdbcType=VARCHAR}, #{authorWebsite,jdbcType=VARCHAR}, 
+      #{authorIp,jdbcType=VARCHAR}, #{authorAgent,jdbcType=VARCHAR}, #{parentId,jdbcType=INTEGER}, 
+      #{commentDate,jdbcType=TIMESTAMP}, #{hided,jdbcType=BIT}, #{published,jdbcType=BIT}, 
+      #{syncStatus,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, #{duoshuoId,jdbcType=VARCHAR}, 
+      #{duoshuoUserId,jdbcType=VARCHAR}, #{content,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.pei.com.pei.pojo.BlogComment" >
+    insert into blog_comment
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="articleId != null" >
+        article_id,
+      </if>
+      <if test="author != null" >
+        author,
+      </if>
+      <if test="authorEmail != null" >
+        author_email,
+      </if>
+      <if test="authorWebsite != null" >
+        author_website,
+      </if>
+      <if test="authorIp != null" >
+        author_ip,
+      </if>
+      <if test="authorAgent != null" >
+        author_agent,
+      </if>
+      <if test="parentId != null" >
+        parent_id,
+      </if>
+      <if test="commentDate != null" >
+        comment_date,
+      </if>
+      <if test="hided != null" >
+        hided,
+      </if>
+      <if test="published != null" >
+        published,
+      </if>
+      <if test="syncStatus != null" >
+        sync_status,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="duoshuoId != null" >
+        duoshuo_id,
+      </if>
+      <if test="duoshuoUserId != null" >
+        duoshuo_user_id,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="articleId != null" >
+        #{articleId,jdbcType=INTEGER},
+      </if>
+      <if test="author != null" >
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="authorEmail != null" >
+        #{authorEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="authorWebsite != null" >
+        #{authorWebsite,jdbcType=VARCHAR},
+      </if>
+      <if test="authorIp != null" >
+        #{authorIp,jdbcType=VARCHAR},
+      </if>
+      <if test="authorAgent != null" >
+        #{authorAgent,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null" >
+        #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="commentDate != null" >
+        #{commentDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hided != null" >
+        #{hided,jdbcType=BIT},
+      </if>
+      <if test="published != null" >
+        #{published,jdbcType=BIT},
+      </if>
+      <if test="syncStatus != null" >
+        #{syncStatus,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="duoshuoId != null" >
+        #{duoshuoId,jdbcType=VARCHAR},
+      </if>
+      <if test="duoshuoUserId != null" >
+        #{duoshuoUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.pei.com.pei.pojo.BlogCommentExample" resultType="java.lang.Integer" >
+    select count(*) from blog_comment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update blog_comment
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null" >
+        user_id = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.articleId != null" >
+        article_id = #{record.articleId,jdbcType=INTEGER},
+      </if>
+      <if test="record.author != null" >
+        author = #{record.author,jdbcType=VARCHAR},
+      </if>
+      <if test="record.authorEmail != null" >
+        author_email = #{record.authorEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.authorWebsite != null" >
+        author_website = #{record.authorWebsite,jdbcType=VARCHAR},
+      </if>
+      <if test="record.authorIp != null" >
+        author_ip = #{record.authorIp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.authorAgent != null" >
+        author_agent = #{record.authorAgent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.parentId != null" >
+        parent_id = #{record.parentId,jdbcType=INTEGER},
+      </if>
+      <if test="record.commentDate != null" >
+        comment_date = #{record.commentDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.hided != null" >
+        hided = #{record.hided,jdbcType=BIT},
+      </if>
+      <if test="record.published != null" >
+        published = #{record.published,jdbcType=BIT},
+      </if>
+      <if test="record.syncStatus != null" >
+        sync_status = #{record.syncStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.duoshuoId != null" >
+        duoshuo_id = #{record.duoshuoId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.duoshuoUserId != null" >
+        duoshuo_user_id = #{record.duoshuoUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.content != null" >
+        content = #{record.content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update blog_comment
+    set id = #{record.id,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=INTEGER},
+      article_id = #{record.articleId,jdbcType=INTEGER},
+      author = #{record.author,jdbcType=VARCHAR},
+      author_email = #{record.authorEmail,jdbcType=VARCHAR},
+      author_website = #{record.authorWebsite,jdbcType=VARCHAR},
+      author_ip = #{record.authorIp,jdbcType=VARCHAR},
+      author_agent = #{record.authorAgent,jdbcType=VARCHAR},
+      parent_id = #{record.parentId,jdbcType=INTEGER},
+      comment_date = #{record.commentDate,jdbcType=TIMESTAMP},
+      hided = #{record.hided,jdbcType=BIT},
+      published = #{record.published,jdbcType=BIT},
+      sync_status = #{record.syncStatus,jdbcType=INTEGER},
+      status = #{record.status,jdbcType=INTEGER},
+      duoshuo_id = #{record.duoshuoId,jdbcType=VARCHAR},
+      duoshuo_user_id = #{record.duoshuoUserId,jdbcType=VARCHAR},
+      content = #{record.content,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update blog_comment
+    set id = #{record.id,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=INTEGER},
+      article_id = #{record.articleId,jdbcType=INTEGER},
+      author = #{record.author,jdbcType=VARCHAR},
+      author_email = #{record.authorEmail,jdbcType=VARCHAR},
+      author_website = #{record.authorWebsite,jdbcType=VARCHAR},
+      author_ip = #{record.authorIp,jdbcType=VARCHAR},
+      author_agent = #{record.authorAgent,jdbcType=VARCHAR},
+      parent_id = #{record.parentId,jdbcType=INTEGER},
+      comment_date = #{record.commentDate,jdbcType=TIMESTAMP},
+      hided = #{record.hided,jdbcType=BIT},
+      published = #{record.published,jdbcType=BIT},
+      sync_status = #{record.syncStatus,jdbcType=INTEGER},
+      status = #{record.status,jdbcType=INTEGER},
+      duoshuo_id = #{record.duoshuoId,jdbcType=VARCHAR},
+      duoshuo_user_id = #{record.duoshuoUserId,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pei.com.pei.pojo.BlogComment" >
+    update blog_comment
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="articleId != null" >
+        article_id = #{articleId,jdbcType=INTEGER},
+      </if>
+      <if test="author != null" >
+        author = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="authorEmail != null" >
+        author_email = #{authorEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="authorWebsite != null" >
+        author_website = #{authorWebsite,jdbcType=VARCHAR},
+      </if>
+      <if test="authorIp != null" >
+        author_ip = #{authorIp,jdbcType=VARCHAR},
+      </if>
+      <if test="authorAgent != null" >
+        author_agent = #{authorAgent,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null" >
+        parent_id = #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="commentDate != null" >
+        comment_date = #{commentDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hided != null" >
+        hided = #{hided,jdbcType=BIT},
+      </if>
+      <if test="published != null" >
+        published = #{published,jdbcType=BIT},
+      </if>
+      <if test="syncStatus != null" >
+        sync_status = #{syncStatus,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="duoshuoId != null" >
+        duoshuo_id = #{duoshuoId,jdbcType=VARCHAR},
+      </if>
+      <if test="duoshuoUserId != null" >
+        duoshuo_user_id = #{duoshuoUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.pei.com.pei.pojo.BlogComment" >
+    update blog_comment
+    set user_id = #{userId,jdbcType=INTEGER},
+      article_id = #{articleId,jdbcType=INTEGER},
+      author = #{author,jdbcType=VARCHAR},
+      author_email = #{authorEmail,jdbcType=VARCHAR},
+      author_website = #{authorWebsite,jdbcType=VARCHAR},
+      author_ip = #{authorIp,jdbcType=VARCHAR},
+      author_agent = #{authorAgent,jdbcType=VARCHAR},
+      parent_id = #{parentId,jdbcType=INTEGER},
+      comment_date = #{commentDate,jdbcType=TIMESTAMP},
+      hided = #{hided,jdbcType=BIT},
+      published = #{published,jdbcType=BIT},
+      sync_status = #{syncStatus,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER},
+      duoshuo_id = #{duoshuoId,jdbcType=VARCHAR},
+      duoshuo_user_id = #{duoshuoUserId,jdbcType=VARCHAR},
+      content = #{content,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pei.com.pei.pojo.BlogComment" >
+    update blog_comment
+    set user_id = #{userId,jdbcType=INTEGER},
+      article_id = #{articleId,jdbcType=INTEGER},
+      author = #{author,jdbcType=VARCHAR},
+      author_email = #{authorEmail,jdbcType=VARCHAR},
+      author_website = #{authorWebsite,jdbcType=VARCHAR},
+      author_ip = #{authorIp,jdbcType=VARCHAR},
+      author_agent = #{authorAgent,jdbcType=VARCHAR},
+      parent_id = #{parentId,jdbcType=INTEGER},
+      comment_date = #{commentDate,jdbcType=TIMESTAMP},
+      hided = #{hided,jdbcType=BIT},
+      published = #{published,jdbcType=BIT},
+      sync_status = #{syncStatus,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER},
+      duoshuo_id = #{duoshuoId,jdbcType=VARCHAR},
+      duoshuo_user_id = #{duoshuoUserId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
