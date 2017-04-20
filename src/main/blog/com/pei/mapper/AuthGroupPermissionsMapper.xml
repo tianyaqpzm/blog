@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.pei.com.pei.mapper.AuthGroupPermissionsMapper" >
-  <resultMap id="BaseResultMap" type="com.pei.com.pei.pojo.AuthGroupPermissions" >
+<mapper namespace="com.pei.mapper.AuthGroupPermissionsMapper" >
+  <resultMap id="BaseResultMap" type="com.pei.pojo.AuthGroupPermissions" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="group_id" property="groupId" jdbcType="INTEGER" />
     <result column="permission_id" property="permissionId" jdbcType="INTEGER" />
@@ -67,7 +67,7 @@
   <sql id="Base_Column_List" >
     id, group_id, permission_id
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.pei.com.pei.pojo.AuthGroupPermissionsExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.pei.pojo.AuthGroupPermissionsExample" >
     select
     <if test="distinct" >
       distinct
@@ -91,19 +91,19 @@
     delete from auth_group_permissions
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.pei.com.pei.pojo.AuthGroupPermissionsExample" >
+  <delete id="deleteByExample" parameterType="com.pei.pojo.AuthGroupPermissionsExample" >
     delete from auth_group_permissions
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.pei.com.pei.pojo.AuthGroupPermissions" >
+  <insert id="insert" parameterType="com.pei.pojo.AuthGroupPermissions" >
     insert into auth_group_permissions (id, group_id, permission_id
       )
     values (#{id,jdbcType=INTEGER}, #{groupId,jdbcType=INTEGER}, #{permissionId,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.pei.com.pei.pojo.AuthGroupPermissions" >
+  <insert id="insertSelective" parameterType="com.pei.pojo.AuthGroupPermissions" >
     insert into auth_group_permissions
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -128,7 +128,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.pei.com.pei.pojo.AuthGroupPermissionsExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.pei.pojo.AuthGroupPermissionsExample" resultType="java.lang.Integer" >
     select count(*) from auth_group_permissions
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -160,7 +160,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.pei.com.pei.pojo.AuthGroupPermissions" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.pei.pojo.AuthGroupPermissions" >
     update auth_group_permissions
     <set >
       <if test="groupId != null" >
@@ -172,7 +172,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.pei.com.pei.pojo.AuthGroupPermissions" >
+  <update id="updateByPrimaryKey" parameterType="com.pei.pojo.AuthGroupPermissions" >
     update auth_group_permissions
     set group_id = #{groupId,jdbcType=INTEGER},
       permission_id = #{permissionId,jdbcType=INTEGER}

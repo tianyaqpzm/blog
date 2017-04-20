@@ -17,8 +17,10 @@ public class MainController {
      * @return
      */
 
-    @RequestMapping(value = "/",method = RequestMethod.GET)
+    @RequestMapping(value = "/main",method = RequestMethod.GET)
     public  String index(){
-        return "/index.jsp";
+        System.out.println("aaaaaaaaaaa");
+
+        return "index";
     }
 }

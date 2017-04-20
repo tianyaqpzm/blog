@@ -4,6 +4,8 @@ import com.pei.pojo.BlogArticleTags;
 import com.pei.pojo.BlogArticleTagsExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 public interface BlogArticleTagsMapper {
     int countByExample(BlogArticleTagsExample example);

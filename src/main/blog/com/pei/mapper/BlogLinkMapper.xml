@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.pei.com.pei.mapper.BlogLinkMapper" >
-  <resultMap id="BaseResultMap" type="com.pei.com.pei.pojo.BlogLink" >
+<mapper namespace="com.pei.mapper.BlogLinkMapper" >
+  <resultMap id="BaseResultMap" type="com.pei.pojo.BlogLink" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="creator_id" property="creatorId" jdbcType="INTEGER" />
     <result column="created_time" property="createdTime" jdbcType="TIMESTAMP" />
@@ -16,7 +16,7 @@
     <result column="icon_url" property="iconUrl" jdbcType="VARCHAR" />
     <result column="address" property="address" jdbcType="VARCHAR" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.pei.com.pei.pojo.BlogLink" extends="BaseResultMap" >
+  <resultMap id="ResultMapWithBLOBs" type="com.pei.pojo.BlogLink" extends="BaseResultMap" >
     <result column="description" property="description" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -84,7 +84,7 @@
   <sql id="Blob_Column_List" >
     description
   </sql>
-  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.pei.com.pei.pojo.BlogLinkExample" >
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.pei.pojo.BlogLinkExample" >
     select
     <if test="distinct" >
       distinct
@@ -100,7 +100,7 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.pei.com.pei.pojo.BlogLinkExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.pei.pojo.BlogLinkExample" >
     select
     <if test="distinct" >
       distinct
@@ -126,13 +126,13 @@
     delete from blog_link
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.pei.com.pei.pojo.BlogLinkExample" >
+  <delete id="deleteByExample" parameterType="com.pei.pojo.BlogLinkExample" >
     delete from blog_link
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.pei.com.pei.pojo.BlogLink" >
+  <insert id="insert" parameterType="com.pei.pojo.BlogLink" >
     insert into blog_link (id, creator_id, created_time, 
       modifier_id, modified_time, hided, 
       published, sync_status, order, 
@@ -144,7 +144,7 @@
       #{type,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{iconUrl,jdbcType=VARCHAR}, 
       #{address,jdbcType=VARCHAR}, #{description,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.pei.com.pei.pojo.BlogLink" >
+  <insert id="insertSelective" parameterType="com.pei.pojo.BlogLink" >
     insert into blog_link
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -235,7 +235,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.pei.com.pei.pojo.BlogLinkExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.pei.pojo.BlogLinkExample" resultType="java.lang.Integer" >
     select count(*) from blog_link
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -330,7 +330,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.pei.com.pei.pojo.BlogLink" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.pei.pojo.BlogLink" >
     update blog_link
     <set >
       <if test="creatorId != null" >
@@ -375,7 +375,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.pei.com.pei.pojo.BlogLink" >
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.pei.pojo.BlogLink" >
     update blog_link
     set creator_id = #{creatorId,jdbcType=INTEGER},
       created_time = #{createdTime,jdbcType=TIMESTAMP},
@@ -392,7 +392,7 @@
       description = #{description,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.pei.com.pei.pojo.BlogLink" >
+  <update id="updateByPrimaryKey" parameterType="com.pei.pojo.BlogLink" >
     update blog_link
     set creator_id = #{creatorId,jdbcType=INTEGER},
       created_time = #{createdTime,jdbcType=TIMESTAMP},

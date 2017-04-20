@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.pei.com.pei.mapper.DjangoSessionMapper" >
-  <resultMap id="BaseResultMap" type="com.pei.com.pei.pojo.DjangoSession" >
+<mapper namespace="com.pei.mapper.DjangoSessionMapper" >
+  <resultMap id="BaseResultMap" type="com.pei.pojo.DjangoSession" >
     <id column="session_key" property="sessionKey" jdbcType="VARCHAR" />
     <result column="expire_date" property="expireDate" jdbcType="TIMESTAMP" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.pei.com.pei.pojo.DjangoSession" extends="BaseResultMap" >
+  <resultMap id="ResultMapWithBLOBs" type="com.pei.pojo.DjangoSession" extends="BaseResultMap" >
     <result column="session_data" property="sessionData" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -72,7 +72,7 @@
   <sql id="Blob_Column_List" >
     session_data
   </sql>
-  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.pei.com.pei.pojo.DjangoSessionExample" >
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.pei.pojo.DjangoSessionExample" >
     select
     <if test="distinct" >
       distinct
@@ -88,7 +88,7 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.pei.com.pei.pojo.DjangoSessionExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.pei.pojo.DjangoSessionExample" >
     select
     <if test="distinct" >
       distinct
@@ -114,19 +114,19 @@
     delete from django_session
     where session_key = #{sessionKey,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="com.pei.com.pei.pojo.DjangoSessionExample" >
+  <delete id="deleteByExample" parameterType="com.pei.pojo.DjangoSessionExample" >
     delete from django_session
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.pei.com.pei.pojo.DjangoSession" >
+  <insert id="insert" parameterType="com.pei.pojo.DjangoSession" >
     insert into django_session (session_key, expire_date, session_data
       )
     values (#{sessionKey,jdbcType=VARCHAR}, #{expireDate,jdbcType=TIMESTAMP}, #{sessionData,jdbcType=LONGVARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.pei.com.pei.pojo.DjangoSession" >
+  <insert id="insertSelective" parameterType="com.pei.pojo.DjangoSession" >
     insert into django_session
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="sessionKey != null" >
@@ -151,7 +151,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.pei.com.pei.pojo.DjangoSessionExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.pei.pojo.DjangoSessionExample" resultType="java.lang.Integer" >
     select count(*) from django_session
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -191,7 +191,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.pei.com.pei.pojo.DjangoSession" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.pei.pojo.DjangoSession" >
     update django_session
     <set >
       <if test="expireDate != null" >
@@ -203,13 +203,13 @@
     </set>
     where session_key = #{sessionKey,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.pei.com.pei.pojo.DjangoSession" >
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.pei.pojo.DjangoSession" >
     update django_session
     set expire_date = #{expireDate,jdbcType=TIMESTAMP},
       session_data = #{sessionData,jdbcType=LONGVARCHAR}
     where session_key = #{sessionKey,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.pei.com.pei.pojo.DjangoSession" >
+  <update id="updateByPrimaryKey" parameterType="com.pei.pojo.DjangoSession" >
     update django_session
     set expire_date = #{expireDate,jdbcType=TIMESTAMP}
     where session_key = #{sessionKey,jdbcType=VARCHAR}

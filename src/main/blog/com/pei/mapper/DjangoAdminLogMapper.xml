@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.pei.com.pei.mapper.DjangoAdminLogMapper" >
-  <resultMap id="BaseResultMap" type="com.pei.com.pei.pojo.DjangoAdminLog" >
+<mapper namespace="com.pei.mapper.DjangoAdminLogMapper" >
+  <resultMap id="BaseResultMap" type="com.pei.pojo.DjangoAdminLog" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="action_time" property="actionTime" jdbcType="TIMESTAMP" />
     <result column="user_id" property="userId" jdbcType="INTEGER" />
@@ -9,7 +9,7 @@
     <result column="object_repr" property="objectRepr" jdbcType="VARCHAR" />
     <result column="action_flag" property="actionFlag" jdbcType="SMALLINT" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.pei.com.pei.pojo.DjangoAdminLogWithBLOBs" extends="BaseResultMap" >
+  <resultMap id="ResultMapWithBLOBs" type="com.pei.pojo.DjangoAdminLogWithBLOBs" extends="BaseResultMap" >
     <result column="object_id" property="objectId" jdbcType="LONGVARCHAR" />
     <result column="change_message" property="changeMessage" jdbcType="LONGVARCHAR" />
   </resultMap>
@@ -77,7 +77,7 @@
   <sql id="Blob_Column_List" >
     object_id, change_message
   </sql>
-  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.pei.com.pei.pojo.DjangoAdminLogExample" >
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.pei.pojo.DjangoAdminLogExample" >
     select
     <if test="distinct" >
       distinct
@@ -93,7 +93,7 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.pei.com.pei.pojo.DjangoAdminLogExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.pei.pojo.DjangoAdminLogExample" >
     select
     <if test="distinct" >
       distinct
@@ -119,13 +119,13 @@
     delete from django_admin_log
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.pei.com.pei.pojo.DjangoAdminLogExample" >
+  <delete id="deleteByExample" parameterType="com.pei.pojo.DjangoAdminLogExample" >
     delete from django_admin_log
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.pei.com.pei.pojo.DjangoAdminLogWithBLOBs" >
+  <insert id="insert" parameterType="com.pei.pojo.DjangoAdminLogWithBLOBs" >
     insert into django_admin_log (id, action_time, user_id, 
       content_type_id, object_repr, action_flag, 
       object_id, change_message)
@@ -133,7 +133,7 @@
       #{contentTypeId,jdbcType=INTEGER}, #{objectRepr,jdbcType=VARCHAR}, #{actionFlag,jdbcType=SMALLINT}, 
       #{objectId,jdbcType=LONGVARCHAR}, #{changeMessage,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.pei.com.pei.pojo.DjangoAdminLogWithBLOBs" >
+  <insert id="insertSelective" parameterType="com.pei.pojo.DjangoAdminLogWithBLOBs" >
     insert into django_admin_log
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -188,7 +188,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.pei.com.pei.pojo.DjangoAdminLogExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.pei.pojo.DjangoAdminLogExample" resultType="java.lang.Integer" >
     select count(*) from django_admin_log
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -252,7 +252,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.pei.com.pei.pojo.DjangoAdminLogWithBLOBs" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.pei.pojo.DjangoAdminLogWithBLOBs" >
     update django_admin_log
     <set >
       <if test="actionTime != null" >
@@ -279,7 +279,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.pei.com.pei.pojo.DjangoAdminLogWithBLOBs" >
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.pei.pojo.DjangoAdminLogWithBLOBs" >
     update django_admin_log
     set action_time = #{actionTime,jdbcType=TIMESTAMP},
       user_id = #{userId,jdbcType=INTEGER},
@@ -290,7 +290,7 @@
       change_message = #{changeMessage,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.pei.com.pei.pojo.DjangoAdminLog" >
+  <update id="updateByPrimaryKey" parameterType="com.pei.pojo.DjangoAdminLog" >
     update django_admin_log
     set action_time = #{actionTime,jdbcType=TIMESTAMP},
       user_id = #{userId,jdbcType=INTEGER},

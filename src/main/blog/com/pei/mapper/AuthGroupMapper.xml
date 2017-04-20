@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.pei.com.pei.mapper.AuthGroupMapper" >
-  <resultMap id="BaseResultMap" type="com.pei.com.pei.pojo.AuthGroup" >
+<mapper namespace="com.pei.mapper.AuthGroupMapper" >
+  <resultMap id="BaseResultMap" type="com.pei.pojo.AuthGroup" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
   </resultMap>
@@ -66,7 +66,7 @@
   <sql id="Base_Column_List" >
     id, name
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.pei.com.pei.pojo.AuthGroupExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.pei.pojo.AuthGroupExample" >
     select
     <if test="distinct" >
       distinct
@@ -90,17 +90,17 @@
     delete from auth_group
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.pei.com.pei.pojo.AuthGroupExample" >
+  <delete id="deleteByExample" parameterType="com.pei.pojo.AuthGroupExample" >
     delete from auth_group
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.pei.com.pei.pojo.AuthGroup" >
+  <insert id="insert" parameterType="com.pei.pojo.AuthGroup" >
     insert into auth_group (id, name)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.pei.com.pei.pojo.AuthGroup" >
+  <insert id="insertSelective" parameterType="com.pei.pojo.AuthGroup" >
     insert into auth_group
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -119,7 +119,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.pei.com.pei.pojo.AuthGroupExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.pei.pojo.AuthGroupExample" resultType="java.lang.Integer" >
     select count(*) from auth_group
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -147,7 +147,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.pei.com.pei.pojo.AuthGroup" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.pei.pojo.AuthGroup" >
     update auth_group
     <set >
       <if test="name != null" >
@@ -156,7 +156,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.pei.com.pei.pojo.AuthGroup" >
+  <update id="updateByPrimaryKey" parameterType="com.pei.pojo.AuthGroup" >
     update auth_group
     set name = #{name,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}

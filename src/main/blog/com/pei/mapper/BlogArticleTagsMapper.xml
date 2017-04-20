@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.pei.com.pei.mapper.BlogArticleTagsMapper" >
-  <resultMap id="BaseResultMap" type="com.pei.com.pei.pojo.BlogArticleTags" >
+<mapper namespace="com.pei.mapper.BlogArticleTagsMapper" >
+  <resultMap id="BaseResultMap" type="com.pei.pojo.BlogArticleTags" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="article_id" property="articleId" jdbcType="INTEGER" />
     <result column="tag_id" property="tagId" jdbcType="INTEGER" />
@@ -67,13 +67,14 @@
   <sql id="Base_Column_List" >
     id, article_id, tag_id
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.pei.com.pei.pojo.BlogArticleTagsExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.pei.pojo.BlogArticleTagsExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
     from blog_article_tags
+--     当只有一个参数的时候，可以使用_parameter，它就代表了这个参数，如果使用@Param的话，会使用指定的参数值代替
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -91,19 +92,19 @@
     delete from blog_article_tags
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.pei.com.pei.pojo.BlogArticleTagsExample" >
+  <delete id="deleteByExample" parameterType="com.pei.pojo.BlogArticleTagsExample" >
     delete from blog_article_tags
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.pei.com.pei.pojo.BlogArticleTags" >
+  <insert id="insert" parameterType="com.pei.pojo.BlogArticleTags" >
     insert into blog_article_tags (id, article_id, tag_id
       )
     values (#{id,jdbcType=INTEGER}, #{articleId,jdbcType=INTEGER}, #{tagId,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.pei.com.pei.pojo.BlogArticleTags" >
+  <insert id="insertSelective" parameterType="com.pei.pojo.BlogArticleTags" >
     insert into blog_article_tags
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -128,7 +129,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.pei.com.pei.pojo.BlogArticleTagsExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.pei.pojo.BlogArticleTagsExample" resultType="java.lang.Integer" >
     select count(*) from blog_article_tags
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -160,7 +161,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.pei.com.pei.pojo.BlogArticleTags" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.pei.pojo.BlogArticleTags" >
     update blog_article_tags
     <set >
       <if test="articleId != null" >
@@ -172,7 +173,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.pei.com.pei.pojo.BlogArticleTags" >
+  <update id="updateByPrimaryKey" parameterType="com.pei.pojo.BlogArticleTags" >
     update blog_article_tags
     set article_id = #{articleId,jdbcType=INTEGER},
       tag_id = #{tagId,jdbcType=INTEGER}
