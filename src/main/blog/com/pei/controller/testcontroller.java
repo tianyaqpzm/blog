@@ -8,19 +8,18 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-/**
- * Created by pei on 2017/4/20.
- */
+
 @Controller
 public class testcontroller {
     @Autowired
-    private IBlogArticleTagsService iBlogArticleTagsService;
+    private IBlogArticleTagsService blogArticleTagsService;
     @RequestMapping("/test")
     public String test(){
 //        BlogArticleTags blogArticleTags = iBlogArticleTagsService.getBlogArticleById(1);
-        int blogArticleTags = iBlogArticleTagsService.getBlogArticleById(1);
+//        int blogArticleTags = iBlogArticleTagsService.getBlogArticleById(1);
         System.out.println("weee");
 //        System.out.println(blogArticleTags.getId());
-        return "test";
+        System.out.println(blogArticleTagsService.getBlogArticleById(1));
+        return "index/index";
     }
 }

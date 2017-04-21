@@ -20,9 +20,7 @@ public class BlogArticleTagsService implements IBlogArticleTagsService {
     private BlogArticleTagsMapper  blogArticleTagsMap;
 
     public int getBlogArticleById(int id){
-
         BlogArticleTags blogArticleTags =blogArticleTagsMap.selectByPrimaryKey(id);
         return blogArticleTags.getArticleId()+100;
-//        return 1;
     }
 }

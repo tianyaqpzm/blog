@@ -41,8 +41,10 @@
 	</mvc:interceptors> 
 	
 		<mvc:default-servlet-handler /> -->
-	
-	
+	<!--使用默认的静态资源处理Servlet处理静态资源(涉及spring-mvc.xml, web.xml)-->
+	<!--在spring-mvc.xml中启用默认Servlet-->
+	<mvc:default-servlet-handler/>
+
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<!--<property name="prefix" value="/WEB-INF/pages/"/>-->
 		<property name="prefix" value="/WEB-INF/pages/"/>
@@ -50,10 +52,10 @@
 	</bean>
 	
 
-	<!-- 资源映射，不拦截静态资源 -->
-<!-- 	<mvc:resources location="/css/" mapping="/css/**"/>
-	<mvc:resources location="/js/" mapping="/js/**"/>
-	<mvc:resources location="/img/" mapping="/img/**"/> -->
+	<!--&lt;!&ndash; 资源映射，不拦截静态资源 &ndash;&gt;-->
+ 	<!--<mvc:resources location="/plugins/" mapping="/css/**"/>-->
+	<!--<mvc:resources location="/js/" mapping="/js/**"/>-->
+	<!--<mvc:resources location="/img/" mapping="/img/**"/>-->
 	
 	<!-- 定义文件上传解析器 -->
 	<bean id="multipartResolver" 

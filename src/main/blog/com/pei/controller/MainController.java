@@ -1,5 +1,7 @@
 package com.pei.controller;
 
+import com.pei.service.IBlogArticleTagsService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,11 +18,13 @@ public class MainController {
      * （3）return "index"：处理完该请求后返回的页面，此请求返回 index.jsp页面。
      * @return
      */
+    @Autowired
+    private IBlogArticleTagsService blogArticleTagsService;
 
     @RequestMapping(value = "/main",method = RequestMethod.GET)
     public  String index(){
         System.out.println("aaaaaaaaaaa");
-
-        return "index";
+        System.out.println(blogArticleTagsService.getBlogArticleById(1));
+        return "index/index";
     }
 }
