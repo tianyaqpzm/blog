@@ -24,7 +24,7 @@ public class MainController {
     @RequestMapping(value = "/main",method = RequestMethod.GET)
     public  String index(){
         System.out.println("aaaaaaaaaaa");
-        System.out.println(blogArticleTagsService.getBlogArticleById(1));
+//        System.out.println(blogArticleTagsService.getBlogArticleById(1));
         return "index/index";
     }
 }

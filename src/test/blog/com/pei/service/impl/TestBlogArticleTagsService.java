@@ -28,7 +28,9 @@ public class TestBlogArticleTagsService {
 //        JedisPool pool = (JedisPool) applicationContext.getBean("redisClient");
 //        BlogArticleTags pool = (BlogArticleTags) applicationContext.getBean("IBlogArticleTagsService");
 //        System.out.println(pool.getArticleId());
-        System.out.println(blogArticleTagsService.getBlogArticleById(1));
+
+
+//        System.out.println(blogArticleTagsService.getBlogArticleById(1));
 
 //        BlogArticleTags blogArticleTags = blogArticleTagsService.getBlogArticleById(1);
 //        System.out.println(blogArticleTags.getId());
