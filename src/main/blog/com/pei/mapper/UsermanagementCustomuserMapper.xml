@@ -367,4 +367,8 @@
       activation_code = #{activationCode,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="count" resultType="int">
+    select count(*) from usermanagement_customuser
+  </select>
 </mapper>

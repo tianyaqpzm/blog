@@ -27,4 +27,6 @@ public interface UsermanagementCustomuserMapper {
     int updateByPrimaryKeySelective(UsermanagementCustomuser record);
 
     int updateByPrimaryKey(UsermanagementCustomuser record);
+
+    int count();
 }

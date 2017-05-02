@@ -7,7 +7,7 @@
       <ul class="nav navbar-nav">
         <li><a class="dropdown-toggle" data-toggle="dropdown" href="#">新建<span class="caret"/></a>
           <ul class="dropdown-menu">
-             <li><a href="${g.domain}/backend/posts/edit">文章</a></li>
+             <li><a href="http://localhost:8080/backend/post/edit">文章</a></li>
              <li><a href="${g.domain}/backend/links/edit">链接</a></li>
              <li><a href="${g.domain}/backend/users/edit">用户</a></li>
           </ul>

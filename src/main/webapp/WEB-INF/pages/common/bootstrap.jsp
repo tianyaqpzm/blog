@@ -7,9 +7,9 @@
 <%--<link rel="icon" href="${g.domain}/resource/img/favicon.ico" type="image/x-icon" />--%>
 <link rel="stylesheet" href="../../../plugins/bootstrap-3.3.7/css/bootstrap.css">
 <%--<link rel="stylesheet" href="${g.domain}/resource/Font-Awesome-3.2.1/css/font-awesome.min.css">--%>
-<%--<link rel="stylesheet" href="${g.domain}/resource/css/backend.css">--%>
+<link rel="stylesheet" href="../../../public/css/backend.css">
 
 <script src="../../../public/js/jquery-3.2.1.js"></script>
 <script src="../../../plugins/bootstrap-3.3.7/js/bootstrap.js"></script>
 <%--<script src="${g.domain}/resource/js/jquery.cookie.js"></script>--%>
-<%--<script src="${g.domain}/resource/js/backend/zblog.admin.js"></script>--%>
+<script src="../../../public/js/backend/zblog.admin.js"></script>
