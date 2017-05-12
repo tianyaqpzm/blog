@@ -22,6 +22,12 @@ public interface BlogCategoryMapper {
 
     BlogCategory selectByPrimaryKey(Integer id);
 
+    /**
+     * 查询所有记录
+     * @return
+     */
+    List<BlogCategory> list();
+
     int updateByExampleSelective(@Param("record") BlogCategory record, @Param("example") BlogCategoryExample example);
 
     int updateByExampleWithBLOBs(@Param("record") BlogCategory record, @Param("example") BlogCategoryExample example);

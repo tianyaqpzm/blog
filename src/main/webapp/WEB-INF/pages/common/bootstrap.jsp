@@ -1,6 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="description" content="${g.description}" />
+<%--让移动设备 响应式的显示网页，而不是以桌面尺寸显示--%>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
 <title>${g.title} Admin</title>

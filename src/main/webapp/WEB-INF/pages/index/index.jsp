@@ -10,11 +10,7 @@
     <%--<link rel="icon" href="../../favicon.ico">--%>
 
     <title>Blog Template for Bootstrap</title>
-
-    <!-- Bootstrap core CSS -->
     <link href="../../../plugins/bootstrap-3.3.7/css/bootstrap.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
     <link href="../../../public/css/index.css" rel="stylesheet">
 
 </head>

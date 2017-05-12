@@ -11,13 +11,16 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-3 col-md-2" id="sidebar" style="padding: 0;">
-            <%--<jsp:include page="common/sidebar.jsp" flush="false" />--%>
+            <jsp:include page="common/sidebar.jsp" flush="false" />
         </div>
         <div class="col-sm-9 col-md-10">
             <h3 class="page-header header">主菜单<small>Welcome to Zblog</small></h3>
             <div class="row">
+                <%--当屏幕为小屏幕(768px,992px)时自动使用class="col-sm-3"
+                当屏幕为中屏(992px,1200px)时自动使用 class="col-md-3" --%>
                 <div class="col-sm-3 col-md-3">
                     <div class="databox">
+                        <%--有冲突的话，后设置的起作用,样式的叠加--%>
                         <div class="sybomol sybomol_terques"><i class="glyphicon glyphicon-user"></i></div>
                         <div class="value">${userCount}<p>用户</p></div>
                     </div>

@@ -28,5 +28,9 @@ public interface UsermanagementCustomuserMapper {
 
     int updateByPrimaryKey(UsermanagementCustomuser record);
 
+    /**
+     * 获取记录总数
+     * @return
+     */
     int count();
 }

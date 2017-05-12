@@ -3,6 +3,8 @@
 
 <ul class="side-menu">
   <li><a class="nav-header" href="#">
+      <%-- aria-hidden 图标的可访问性--%>
+      <%--当焦点落到该输入框时，读屏软件就会读出aria-label里的内容，即“用户名”。--%>
         <i class="left glyphicon glyphicon-home" aria-hidden="true"></i>系统设置
         <i class="right glyphicon glyphicon-chevron-down" aria-hidden="true"></i></a>
     <ul class="sub-menu" style="display: block;">

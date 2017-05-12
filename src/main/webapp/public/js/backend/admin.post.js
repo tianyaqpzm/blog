@@ -21,11 +21,17 @@ $(function(){
   });
   
   zblog.post.epiceditor=new EpicEditor({
-    // basePath: window.location.protocol+"//"+window.location.port+window.location.host+"/plugins/epiceditor-0.2.3",
-    basePath: window.location.protocol+"//"+window.location.port+window.location.host+"/plugins/epiceditor-0.2.3",
-    useNativeFullscreen: false,
+    // basePath: The base path of the directory containing the /themes.
+    // basePath: window.location.protocol+"//"+window.location.host+window.location.port+"/plugins/epiceditor-0.2.3",
+    basePath:"../../plugins/epiceditor-0.2.3",
+    // basePath: "/plugins/epiceditor-0.2.3",
+
+      //设置为false以始终使用虚拟全屏
+      useNativeFullscreen: false,
     clientSideStorage: false,
     file:{
+      //显示文件中是否存在内容的内容。
+        // 注意：如果使用该textarea选项，textarea的值将优先defaultContent。
       defaultContent: $("#editor-txt-tt").val(),
       autoSave: false
     },

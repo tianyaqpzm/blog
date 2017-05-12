@@ -7,6 +7,12 @@
   <jsp:include page="../../common/bootstrap.jsp" flush="false" />
   <script type="text/javascript" src="../../../../plugins/ueditor-1.4.3/ueditor.config.js"></script>
   <script type="text/javascript" src="../../../../plugins/ueditor-1.4.3/ueditor.all.js"></script>
+     <%--
+     EpicEditor 是一款可以嵌入到网页中的 JavaScript Markdown 编辑器，
+     支持全屏编辑、在线预览、自动保存草稿，离线支持等等。
+     对于开发人员，它提供了一个健壮的API，可以很容易定制主题并允许你灵活使用绑定的 Markdown 解析器。
+     https://github.com/OscarGodson/EpicEditor/
+     --%>
   <script type="text/javascript" src="../../../../plugins/epiceditor-0.2.3/js/epiceditor.min.js"></script>
  </head>
  <body style="margin-top: 50px;">
@@ -37,12 +43,15 @@
               <div class="tab-content">
                 <!-- EpicEditor初始化时必须为显示状态 -->
                 <div class="tab-pane active" id="editor-mk"><div id="epiceditor"></div></div>
+
                 <div class="tab-pane" id="editor-txt">
                   <textarea id="editor-txt-tt" style="width: 100%; height: 400px">${post.content}</textarea>
                 </div>
+
                 <div class="tab-pane" id="editor-ue">
                   <!-- 必须要添加width:100% -->
                   <script id="ueditor" style="width: 100%; height: 350px;" type="text/plain">${post.content}</script></div>
+
               </div>
             </div>
             <div class="panel-footer text-success">注:此三种编辑模式相互独立,最终以当前选中标签页内容提交</div>
@@ -53,16 +62,18 @@
              <div class="panel-heading">发布</div>
              <div class="panel-body">
                <div class="form-group">
-                 <label for="categoty">分类</label>
+                 <label for="category">分类</label>
                  <select class="form-control" id="category">
-                   <c:forEach items="${categorys}" var="category" begin="1">
+                   <c:forEach items="${categorys}" var="category" begin="0">
                      <option value="${category.id}" ${post.category.id==category.id?'selected':''}>
-                        ├─<c:if test="${category.level==3}">└─</c:if>${category.name}
+                        <%--├─<c:if test="${category.parentId!=null}">└─</c:if>${category.name}--%>
+                        <c:if test="${category.parentId==null}">${category.name}</c:if>
                       </option>
                    </c:forEach>
                  </select>
                </div>
                <div class="form-group">
+                   <%--<lable for="控件id名">--%>
                  <label for="pstatus">公开度</label><br/>
                  <label class="radio-inline">
                     <input type="radio" name="pstatus" value="publish" ${post.pstatus=='publish'?'checked':''}>公开

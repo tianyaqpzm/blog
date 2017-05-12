@@ -86,6 +86,12 @@
   <sql id="Blob_Column_List" >
     description
   </sql>
+
+
+  <!--list 所有分类信息-->
+  <select id="list" resultMap="BaseResultMap">
+    SELECT * FROM blog_category
+  </select>
   <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.pei.pojo.BlogCategoryExample" >
     select
     <if test="distinct" >
