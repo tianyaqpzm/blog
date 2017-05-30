@@ -21,7 +21,7 @@ public class MainController {
     @Autowired
     private IBlogArticleTagsService blogArticleTagsService;
 
-    @RequestMapping(value = "/main",method = RequestMethod.GET)
+    @RequestMapping(value = "/index",method = RequestMethod.GET)
     public  String index(){
         System.out.println("aaaaaaaaaaa");
 //        System.out.println(blogArticleTagsService.getBlogArticleById(1));
